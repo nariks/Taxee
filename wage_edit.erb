@@ -1,0 +1,130 @@
+<div class="container-fluid" >
+    <div class="modal-dialog-fluid" role="document" >
+        <div class="modal-content" style="background-color:#C5CAE9";>
+            <div class="modal-header">
+                <h2 class="text-center">Edit wage details for client <%= @client.client_name %></h2>
+            </div>
+      
+            <div class="modal-body">
+            
+              <form action="/client/edit/wages/<%= @wage.client_id %>" method=  "post">
+                  <div class="container">
+                  <div class="form-group row">
+                            <label for="year" class="col-sm-3 form-control-label">Tax Year</label>
+                      <div class="col-sm-4">
+                          <input type="text" class="form-control" name="tax_year" value="<%= @wage.tax_year %>" readonly>
+                      </div>
+                </div>
+
+              <input type="hidden" name="client_id" value="<%= @wage.client_id %>" >
+      
+              <div class="form-group row">
+                  <label for="name" class="col-sm-3 form-control-label">Salaries</label>
+                  <div class="col-sm-4">
+                     <input type="number" class="form-control" name="salary" id="salary" value="<%= @wage.salary %>">
+                  </div>
+              </div>
+
+              <div class="form-group row">
+                  <label for="client_id" class="col-sm-3 form-control-label">Superannuation</label>
+                  <div class="col-sm-4">
+                      <input type="number" class="form-control" name="super" id="super" 
+                                value="<%= @wage.super %>">
+                  </div>
+              </div>
+
+              <div class="form-group row">
+                  <label for="name" class="col-sm-3 form-control-label">Fringe benefits</label>
+                  <div class="col-sm-4">
+                      <input type="number" class="form-control" name="fringe_benefits" id="fringe_benefits" value="<%= @wage.fringe_benefits %>">
+                  </div>
+              </div>
+
+              <div class="form-group row">
+                  <label for="client_id" class="col-sm-3 form-control-label">Contractors</label>
+                  <div class="col-sm-4">
+                    <input type="number" class="form-control" name="contractor_payments" id="contractor_payments" value="<%= @wage.contractor_payments %>">
+                  </div>
+              </div>
+
+                        <div class="form-group row">
+                          <label for="client_id" class="col-sm-3 form-control-label">Shares/Options</label>
+                          <div class="col-sm-4">
+                            <input type="number" class="form-control" name="ess" id="ess" value="<%= @wage.ess %>">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="name" class="col-sm-3 form-control-label">Allowances</label>
+                          <div class="col-sm-4">
+                            <input type="number" class="form-control" name="allowances" id="allowances" value="<%= @wage.allowances %>">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="client_id" class="col-sm-3 form-control-label">Apprentices/Trainees</label>
+                          <div class="col-sm-4">
+                            <input type="number" class="form-control" name="apprentice_payments" id="apprentice_payments" value="<%= @wage.apprentice_payments %>">
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="client_id" class="col-sm-3 form-control-label">Exempt Wages</label>
+                          <div class="col-sm-4">
+                            <input type="number" class="form-control" name="exempt_wages" id="exempt_wages" value="<%= @wage.exempt_wages %>">
+                          </div>
+                        </div>
+
+                        <% if @client.grp_members > 0 %>
+
+                          <div class="form-group row">
+                            <label for="client_id" class="col-sm-3 form-control-label">Group NSW Wages</label>
+                            <div class="col-sm-4">
+                              <input type="number" class="form-control" name="grp_nsw_wages" id="grp_nsw_wages" value="<%= @wage.grp_nsw_wages %>"
+                            </div>
+                          </div>
+
+                          <div class="form-group row">
+                            <label for="client_id" class="col-sm-3 form-control-label">Interstate Wages</label>
+                            <div class="col-sm-4">
+                              <input type="number" class="form-control" name="interstate_wages" id="interstate_wages" value="<%= @wage.interstate_wages %>">
+                            </div>
+                          </div>
+
+
+
+                          <div class="form-group row">
+                            <label for="client_id" class="col-sm-3 form-control-label">Group Interstate Wages</label>
+                            <div class="col-sm-4">
+                              <input type="number" class="form-control" name="grp_interstate_wages" id="grp_interstate_wages" value="<%= @wage.grp_interstate_wages %>">
+                            </div>
+                          </div>
+
+                        <% else %>
+                          <input type="hidden" class="form-control" name="grp_nsw_wages" id="grp_nsw_wages" value="0">
+
+                          <input type="hidden" class="form-control" name="interstate_wages" id="interstate_wages" value="0">
+
+                          <input type="hidden" class="form-control" name="grp_interstate_wages" id="grp_interstate_wages" value="0">
+
+
+                        <% end %>
+
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <form action="#" method="get">
+                                <button class="btn btn-primary btn-lg" >Update</button>
+                              </form>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+        
+
+          
+
+      
+
+    

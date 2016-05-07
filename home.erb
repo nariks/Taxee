@@ -1,0 +1,38 @@
+<div class="container">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+      <div class="modal-header">
+      	<h2 class="text-center">Welcome <%= @user.name %></h2>
+        <h5 class="text-center">What would you like to do today?</h5>
+      </div>
+
+      <div class="modal-body">
+      	<form method="get" action="/sessions/new_client">
+        	<div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Create New Client</button>
+        	</div>
+		</form>
+
+		<form method="get" action="/sessions/my_profile">
+			  <div class="form-group">
+		    	   <button type="submit" class="btn btn-primary btn-lg btn-block">Edit Client / Wage Details</button>
+		      </div>
+		</form>
+
+    <form method="get" action="/client/export">
+        <div class="form-group">
+             <button type="submit" class="btn btn-primary btn-lg btn-block">Export client records</button>
+          </div>
+    </form>
+		
+    <form method="get" action="/sessions/report">
+        <div class="form-group">
+             <button type="submit" class="btn btn-primary btn-lg btn-block">Generate Report</button>
+        </div>
+    </form>
+
+      </div>
+ 
+</div>
+</div>
+</div>

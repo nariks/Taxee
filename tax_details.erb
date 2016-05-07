@@ -1,0 +1,34 @@
+<div class="container-fluid" style="background-color:#C5CAE9";>
+    <div class="col-sm-7 col-offset-3">
+         <br>
+         <h3> Tax details for <%= @client.client_name %> </h3>
+         <br>
+         <table class="table">
+            <thead>
+                <tr>
+                    <th>Tax Year</th>
+                    <th>Tax Liability</th>
+                    <th>Penalty Tax</th>
+                    <th>Interest</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @tax_details.each do |tax_detail| %>
+                    <tr>
+                        <td><%= tax_detail.tax_year %></td>
+                        <td><%= Wage.number_to_currency(tax_detail.prt_liability.round(2)) %></td>
+                        <td><%= Wage.number_to_currency(tax_detail.penalty_tax.round(2)) %></td>
+                        <td><%= Wage.number_to_currency(tax_detail.interest.round(2)) %></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+        <div class="col-sm-9">
+            <form action="/client/new/wages/<%= @client.client_id %>" method="get">
+                <button class="btn btn-primary btn-sm" >Create New Record</button>
+            </form>
+        </div>
+
+    </div>
+</div>

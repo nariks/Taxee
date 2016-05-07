@@ -1,0 +1,37 @@
+<div class="container-fluid" style="background-color:#C5CAE9";>
+    <div class="col-sm-7">
+         <br>
+         <h1> Clients created by you </h1>
+         <br>
+         <table class="table">
+            <thead>
+                <tr>
+                    <th>Client ID</th>
+                    <th>Client Name</th>
+                    <th>Tax years</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @clients.each do |client| %>
+                    <tr>
+                        <td><%= client.client_id %></td>
+                        <td><%= client.client_name %></td>
+                        <td><% Wage.client_tax_details(client.client_id).each do |year| %>
+                            <%= year.tax_year %><br>
+                        <% end %>
+                        
+                        </td>
+                        <td><a href="/client/edit/<%= client.client_id %>"
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                            <td><a href="/client/delete/<%= client.client_id %>"
+                            <i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+

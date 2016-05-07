@@ -1,0 +1,92 @@
+    <div class="container-fluid" >
+      <div class="modal-dialog-fluid" role="document" >
+        <div class="modal-content" style="background-color:#7986CB";>
+         <div class="modal-header">
+           <h1 class="text-center">Enter new client details</h1>
+           <% if Client.new.errors.any? %>
+           <h2>Client already exists</h2>
+           <% end %>
+
+         </div>
+         <div class="modal-body">
+          <form action="/sessions/new_client" method=  "post">
+           <div class="container">
+            <div class="form-group row">
+              <label for="name" class="col-sm-3 form-control-label">Company Name</label>
+              <div class="col-sm-7">
+               <input type="text" class="form-control" name="client_name" id="name" placeholder="Enter company name">
+             </div>
+           </div>
+
+          <div class="form-group row">
+            <label for="client_id" class="col-sm-3 form-control-label">Client ID</label>
+            <div class="col-sm-7">
+             <input type="text" class="form-control" name="client_id" id="client_id" placeholder="Enter company ID">
+            </div>
+          </div>
+
+         <div class="form-group row">
+          <label class="col-sm-3 form-control-label">Group Status</label>
+          <div class="col-sm-7">
+           <label class="radio-inline">
+             <input type="radio" name="grp_status" id="grp_status1" value="Not grouped"> Not grouped
+           </label>
+           <label class="radio-inline">
+             <input type="radio" name="grp_status" id="grp_status2" value="DGE"> DGE
+           </label>
+           <label class="radio-inline">
+             <input type="radio" name="grp_status" id="grp_status3" value="NTC"> NTC
+           </label>
+           <label class="radio-inline">
+             <input type="radio" name="grp_status" id="grp_status4" value="SL"> SL
+           </label>
+         </div>
+       </div>
+
+       <div class="form-group row">
+        <label for="grp_member_num" class="col-sm-3 form-control-label">Number of group members</label>
+        <div class="col-sm-7">
+         <input type="number" class="form-control" name="grp_members" id="grp_members" 
+         placeholder="Enter Number of group members">
+       </div>
+     </div>
+
+     <div class="col-sm-offset-3 col-sm-9">
+       <form action="#" method="get">
+         <button class="btn btn-primary btn-lg" >Submit</button>
+       </form>
+     </div>
+   </div>
+ </form>
+</div>
+</div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div>
+
+
+
+
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#home" role="tab" id="home_tab">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#profile" role="tab">Profile</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#messages" role="tab">Messages</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#settings" role="tab">Settings</a>
+  </li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="home" role="tabpanel">...</div>
+  <div class="tab-pane" id="profile" role="tabpanel">...</div>
+  <div class="tab-pane" id="messages" role="tabpanel">...</div>
+  <div class="tab-pane" id="settings" role="tabpanel">...</div>
+</div>

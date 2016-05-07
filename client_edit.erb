@@ -1,0 +1,102 @@
+<!-- <div class="container-fluid" style="background-color:#9FA8DA";> -->
+
+<div class="container-fluid" style="background-color:#C5CAE9";>
+  <div class="container col-sm-9">
+    <form action="/client/edit/<%= @client.client_id %>" method=  "post">
+      <div class="modal-header">
+        <h4 class="text-center">Client details for <%= @client.client_name %></h4>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="form-group row">
+          <label for="client_id" class="col-sm-3 form-control-label">Client ID</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="client_id" id="client_id" value="<%=@client.client_id %>" readonly>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="name" class="col-sm-3 form-control-label">Company Name</label>
+          <div class="col-sm-6">
+            <input type="text" class="form-control" name="client_name" id="name" value="<%=@client.client_name %>">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-3 form-control-label">Group Status</label>
+          <div class="col-sm-6">
+            <label class="radio-inline">
+              <input type="radio" name="grp_status" id="grp_status1" value="Not grouped" <%= "checked" if @client.check_grp_status("Not grouped") %>> Not grouped
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="grp_status" id="grp_status2" value="DGE" <%= "checked" if @client.check_grp_status("DGE") %>> DGE
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="grp_status" id="grp_status3" value="NTC" <%= "checked" if @client.check_grp_status("NTC") %>> NTC
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="grp_status" id="grp_status4" value="SL" <%= "checked" if @client.check_grp_status("SL") %>>  SL
+            </label>
+          </div>
+        </div>
+
+
+        <div class="form-group row">
+          <label for="grp_member_num" class="col-sm-3 form-control-label">Number of group members</label>
+          <div class="col-sm-6">
+            <input type="number" class="form-control" name="grp_members" id="grp_members" 
+                   value="<%=@client.grp_members %>">
+          </div>
+        </div>
+
+            <div class="col-sm-offset-3 col-sm-9">
+              <form action="#" method="get">
+            <button class="btn btn-primary btn-sm" >Update Client Details</button>
+              </form>
+            </div>
+        </div> <!--modal body -->
+        </form>
+        </div>
+        <br><br>
+        <div class="container col-sm-6">  
+          <h4> Wage Details</h4>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Tax year</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if @wages != nil %>
+                <% @wages.each do |wage_year| %>
+                <tr>
+                  <td><%= wage_year.tax_year %></td>
+                  <td><a href="/client/edit/wages/<%= @client.client_id %>/<%= wage_year.tax_year %>"
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+                  <td><a href="/client/delete/wages/<%= @client.client_id %>/<%= wage_year.tax_year %>"
+                      <i class="fa fa-trash" aria-hidden="true"></i></a></td>
+                </tr>
+                <% end %>
+                
+              <% else %>
+                <h3>None</h3>
+              <% end %>
+            </tbody>
+          </table>
+
+          <div class="col-sm-9">
+            <form action="/client/new/wages/<%= @client.client_id %>" method="get">
+              <button class="btn btn-primary btn-sm" >Create New Record</button>
+            </form>
+          </div>
+        </div>
+  </div>
+  
+
+
+
+
+   
